@@ -1,5 +1,5 @@
 import React from "react";
-
+import EpisodeDetails from './EpisodeDetails';
 interface EpisodeProps {
   id: number;
   name: string;
@@ -10,13 +10,9 @@ interface EpisodeProps {
 
 interface EpisodeListProps {
   episodes: EpisodeProps[];
-  onPageChange: (page: number) => void;
 }
 
-const EpisodeList: React.FC<EpisodeListProps> = ({
-  episodes,
-  onPageChange,
-}) => {
+const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
   return (
     <div>
       <ul>
@@ -30,11 +26,10 @@ const EpisodeList: React.FC<EpisodeListProps> = ({
                 <li key={character}>{character}</li>
               ))}
             </ul> */}
+             <EpisodeDetails episodeId={episode.id} />
           </li>
         ))}
       </ul>
-      {/* <button onClick={() => onPageChange(0)}>0</button>
-      <button onClick={() => onPageChange(1)}>1</button> */}
     </div>
   );
 };
