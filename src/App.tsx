@@ -1,15 +1,17 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EpisodesPage from "./pages/EpisodesPage";
 import CharactersPage from "./pages/CharactersPage";
 import LocationsPage from "./pages/LocationsPage";
 import Footer from "./components/Footer";
 import "./App.css";
+import Header from "./components/Header";
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
+        <Header />
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Episodes</Link>
@@ -21,7 +23,7 @@ function App() {
               <Link to="/locations">Locations</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
         <Routes>
           <Route path="/" element={<EpisodesPage />} />
