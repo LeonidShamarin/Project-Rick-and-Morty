@@ -11,19 +11,6 @@ function App() {
     <Router>
       <div>
         <Header />
-        {/* <nav>
-          <ul>
-            <li>
-              <Link to="/">Episodes</Link>
-            </li>
-            <li>
-              <Link to="/characters">Characters</Link>
-            </li>
-            <li>
-              <Link to="/locations">Locations</Link>
-            </li>
-          </ul>
-        </nav> */}
 
         <Routes>
           <Route path="/" element={<EpisodesPage />} />
