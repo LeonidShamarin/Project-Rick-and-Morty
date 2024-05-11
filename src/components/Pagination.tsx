@@ -21,18 +21,25 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <div className="pagination">
-      <ul>
+    <div className="flex justify-center mt-8">
+      <nav
+        className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
+        aria-label="Pagination"
+      >
         {pageNumbers.map((page) => (
-          <li
+          <button
             key={page}
-            className={currentPage === page ? 'active' : ''}
             onClick={() => handlePageClick(page)}
+            className={`${
+              currentPage === page
+                ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600'
+                : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+            } relative inline-flex items-center px-4 py-2 border text-sm font-medium`}
           >
             {page}
-          </li>
+          </button>
         ))}
-      </ul>
+      </nav>
     </div>
   );
 };
