@@ -9,16 +9,16 @@ interface Character {
   species: string;
   gender: string;
   image: string;
-  origin: {
-    name: string;
-  };
-  episode: string[];
-  location: {
-    name: string;
-  };
-  created: string;
-  url: string;
-  episodeCount: number;
+  // origin: {
+  //   name: string;
+  // };
+  // episode: string[];
+  // location: {
+  //   name: string;
+  // };
+  // created: string;
+  // url: string;
+  // episodeCount: number;
 }
 
 const CharactersPage: React.FC = () => {
