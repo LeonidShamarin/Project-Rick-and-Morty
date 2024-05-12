@@ -3,13 +3,12 @@ import EpisodesPage from "./pages/EpisodesPage";
 import CharactersPage from "./pages/CharactersPage";
 import LocationsPage from "./pages/LocationsPage";
 import Footer from "./components/Footer";
-import "./App.css";
 import Header from "./components/Header";
 
 function App() {
   return (
     <Router>
-      <div>
+      <div className="app">
         <Header />
 
         <Routes>

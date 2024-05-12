@@ -45,9 +45,6 @@ const CharactersPage: React.FC = () => {
     fetchCharacters();
   }, [currentPage, searchQuery, statusFilter, genderFilter]);
 
-
-
-
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
@@ -84,16 +81,12 @@ const CharactersPage: React.FC = () => {
         <p className="text-red-500">Error: {error.message}</p>
       ) : (
         <>
-          <CharacterList
-            characters={characters}
-           
-          />
+          <CharacterList characters={characters} />
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
           />
-          
         </>
       )}
     </div>
