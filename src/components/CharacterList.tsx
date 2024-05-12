@@ -33,15 +33,15 @@ const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
             <div className="p-4">
               <h3 className="text-lg font-semibold mb-2">{character.name}</h3>
               <p className="text-gray-600 mb-1">
-                <span className="font-semibold">Status:</span>
+                <span className="font-semibold ">Status: </span>
                 {character.status}
               </p>
               <p className="text-gray-600 mb-1">
-                <span className="font-semibold">Species:</span>
+                <span className="font-semibold">Species: </span>
                 {character.species}
               </p>
               <p className="text-gray-600">
-                <span className="font-semibold">Gender:</span>
+                <span className="font-semibold">Gender: </span>
                 {character.gender}
               </p>
             </div>

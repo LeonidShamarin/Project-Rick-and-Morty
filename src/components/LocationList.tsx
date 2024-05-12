@@ -28,10 +28,10 @@ const LocationList: React.FC<LocationListProps> = ({ locations }) => {
           <div className="p-4">
             <h3 className="text-lg font-semibold mb-2">{location.name}</h3>
             <p className="text-gray-600 mb-1">
-              <span className="font-semibold">Type:</span> {location.type}
+              <span className="font-semibold">Type: </span> {location.type}
             </p>
             <p className="text-gray-600">
-              <span className="font-semibold">Dimension:</span>
+              <span className="font-semibold">Dimension: </span>
               {location.dimension}
             </p>
           </div>
