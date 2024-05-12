@@ -8,7 +8,7 @@ Each section leverages the Rick and Morty API to display content, with episodes 
 
 ## Features
 
-- **Episodes Page**: A list of all episodes provided via the Rick and Morty REST API with pagination similar to the IMDB top 250 list. Clicking on an episode reveals a modal with more details and the first three characters featured in that episode.
+- **Episodes Page**: A list of all episodes provided via the Rick and Morty REST API with pagination. Clicking on an episode reveals a modal with more details and the first three characters featured in that episode.
 - **Characters Page**: An extensive list of characters with the ability to search by name and filter by status and gender. Instead of modals, all character details are directly accessible on the page.
 - **Locations Page**: An exhaustive catalog of locations in the Rick and Morty universe. It implements GraphQL to fetch and display location data.
 
