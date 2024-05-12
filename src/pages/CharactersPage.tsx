@@ -45,6 +45,9 @@ const CharactersPage: React.FC = () => {
     fetchCharacters();
   }, [currentPage, searchQuery, statusFilter, genderFilter]);
 
+
+
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };

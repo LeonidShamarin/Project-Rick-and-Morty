@@ -17,7 +17,7 @@ const EpisodeDetails: React.FC<EpisodeDetailsProps> = ({ episodeId }) => {
   const [episode, setEpisode] = useState<any>(null);
   const [characters, setCharacters] = useState<Character[]>([]);
   const [showModal, setShowModal] = useState(false);
-  // const [loadMore, setLoadMore] = useState(false);
+
 
   useEffect(() => {
     const fetchEpisodeDetails = async () => {
