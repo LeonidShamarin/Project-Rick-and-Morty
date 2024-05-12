@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Modal from './Modal';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Modal from "./Modal";
 
 interface Character {
   id: number;
@@ -17,7 +17,7 @@ const EpisodeDetails: React.FC<EpisodeDetailsProps> = ({ episodeId }) => {
   const [episode, setEpisode] = useState<any>(null);
   const [characters, setCharacters] = useState<Character[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [loadMore, setLoadMore] = useState(false);
+  // const [loadMore, setLoadMore] = useState(false);
 
   useEffect(() => {
     const fetchEpisodeDetails = async () => {
@@ -26,9 +26,17 @@ const EpisodeDetails: React.FC<EpisodeDetailsProps> = ({ episodeId }) => {
           `https://rickandmortyapi.com/api/episode/${episodeId}`
         );
         setEpisode(response.data);
-        setCharacters(response.data.characters.slice(0, 3));
+        const characterIds = response.data.characters
+          .slice(0, 3)
+          .map((url: string) => url.split("/").pop());
+        const characterResponses = await Promise.all(
+          characterIds.map((id: string) =>
+            axios.get(`https://rickandmortyapi.com/api/character/${id}`)
+          )
+        );
+        setCharacters(characterResponses.map((response) => response.data));
       } catch (error) {
-        console.error('Error fetching episode details:', error);
+        console.error("Error fetching episode details:", error);
       }
     };
 
@@ -37,16 +45,18 @@ const EpisodeDetails: React.FC<EpisodeDetailsProps> = ({ episodeId }) => {
 
   const handleLoadMore = async () => {
     try {
+      const characterIds = episode.characters
+        .slice(characters.length, characters.length + 2)
+        .map((url: string) => url.split("/").pop());
       const characterResponses = await Promise.all(
-        episode.characters.slice(3).map((url: string) =>
-          axios.get(url)
+        characterIds.map((id: string) =>
+          axios.get(`https://rickandmortyapi.com/api/character/${id}`)
         )
       );
       const newCharacters = characterResponses.map((response) => response.data);
       setCharacters((prevCharacters) => [...prevCharacters, ...newCharacters]);
-      setLoadMore(false);
     } catch (error) {
-      console.error('Error fetching additional characters:', error);
+      console.error("Error fetching additional characters:", error);
     }
   };
 
@@ -63,7 +73,7 @@ const EpisodeDetails: React.FC<EpisodeDetailsProps> = ({ episodeId }) => {
             <h2>{episode.name}</h2>
             <p>Air Date: {episode.air_date}</p>
             <p>Episode: {episode.episode}</p>
-          
+
             <h3>Characters</h3>
             <ul>
               {characters.map((character) => (
@@ -74,10 +84,9 @@ const EpisodeDetails: React.FC<EpisodeDetailsProps> = ({ episodeId }) => {
                 </li>
               ))}
             </ul>
-            {episode.characters.length > 3 && !loadMore && (
-              <button onClick={() => setLoadMore(true)}>Load More</button>
+            {episode.characters.length > characters.length && (
+              <button onClick={handleLoadMore}>Load More</button>
             )}
-            {loadMore && <button onClick={handleLoadMore}>Loading...</button>}
           </>
         )}
       </Modal>

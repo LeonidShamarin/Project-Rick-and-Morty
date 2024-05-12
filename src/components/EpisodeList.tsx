@@ -1,5 +1,6 @@
 import React from "react";
 import EpisodeDetails from "./EpisodeDetails";
+// import placeholderImage from "../img/tv-show-rick-and-morty-preview.jpg";
 interface EpisodeProps {
   id: number;
   name: string;
@@ -20,7 +21,9 @@ const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
           key={episode.id}
           className="bg-white shadow-md rounded-lg overflow-hidden"
         >
-          <div className="h-48 bg-gray-300"></div>
+          <div className="h-48 bg-gray-300">
+            {/* <img src={placeholderImage} alt="placeholderImage" /> */}
+          </div>
           <div className="p-4">
             <h3 className="text-lg font-semibold mb-2">{episode.name}</h3>
             <p className="text-gray-600 mb-2">Air Date: {episode.air_date}</p>
