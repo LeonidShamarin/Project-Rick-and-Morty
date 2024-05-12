@@ -83,10 +83,7 @@ const CharactersPage: React.FC = () => {
         <>
           <CharacterList
             characters={characters}
-            onPageChange={handlePageChange}
-            onSearch={handleSearch}
-            onStatusFilter={handleStatusFilter}
-            onGenderFilter={handleGenderFilter}
+           
           />
           <Pagination
             currentPage={currentPage}
