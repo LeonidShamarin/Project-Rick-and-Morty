@@ -46,7 +46,7 @@ const EpisodeDetails: React.FC<EpisodeDetailsProps> = ({ episodeId }) => {
   const handleLoadMore = async () => {
     try {
       const characterIds = episode.characters
-        .slice(characters.length, characters.length + 2)
+        .slice(characters.length, characters.length + 3)
         .map((url: string) => url.split("/").pop());
       const characterResponses = await Promise.all(
         characterIds.map((id: string) =>

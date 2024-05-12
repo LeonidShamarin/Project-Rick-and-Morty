@@ -1,56 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import React from 'react';
+import { useQuery } from '@apollo/client';
 import LocationList from '../components/LocationList';
-
-interface Location {
-  id: number;
-  name: string;
-  type: string;
-  dimension: string;
-  
-}
-
-const client = new ApolloClient({
-  uri: 'https://rickandmortyapi.com/graphql',
-  cache: new InMemoryCache(),
-});
-
-const GET_LOCATIONS = gql`
-  query GetLocations {
-    locations {
-      results {
-        id
-        name
-        type
-        dimension
-      }
-    }
-  }
-`;
+import Loading from '../components/Loading';
+import { GET_LOCATIONS } from '../graphql/queries';
 
 const LocationsPage: React.FC = () => {
-  const [locations, setLocations] = useState<Location[]>([]);
+  const { loading, error, data } = useQuery(GET_LOCATIONS);
 
-  useEffect(() => {
-    const fetchLocations = async () => {
-      try {
-        const { data } = await client.query({ query: GET_LOCATIONS });
-        setLocations(data.locations.results);
-      } catch (error) {
-        console.error('Error fetching locations:', error);
-      }
-    };
-
-    fetchLocations();
-  }, []);
+  if (loading) return <Loading />;
+  if (error) return <p className="text-red-500">Error: {error.message}</p>;
 
   return (
     <div>
-      <h1>Locations</h1>
-      <LocationList locations={locations} />
+      <h1 className="text-3xl font-bold mb-4">Locations</h1>
+      <LocationList locations={data.locations.results} />
     </div>
   );
 };
 
 export default LocationsPage;
-
