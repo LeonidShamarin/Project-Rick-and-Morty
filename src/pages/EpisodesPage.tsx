@@ -47,7 +47,7 @@ const EpisodesPage: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-4">Episodes</h1>
+      <h1 className="text-3xl font-bold mt-4 px-10">Episodes</h1>
       {isLoading ? (
         <Loading />
       ) : error ? (

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent } from "react";
 
 interface CharacterFilterProps {
   searchQuery: string;
@@ -30,19 +30,22 @@ const CharacterFilter: React.FC<CharacterFilterProps> = ({
   };
 
   return (
-    <div className="mb-4">
+    <div className="mb-4 p-10">
       <div className="mb-2">
         <input
           type="text"
           placeholder="Search by name"
           value={searchQuery}
-          className="border border-gray-300 rounded-md px-3 py-2 w-full"
+          className="border border-gray-300 rounded-md px-3 py-2 w-96"
           onChange={handleSearchChange}
         />
       </div>
       <div className="flex space-x-4">
         <div>
-          <label htmlFor="status-filter" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="status-filter"
+            className="block text-sm font-medium text-gray-700"
+          >
             Status
           </label>
           <select
@@ -58,7 +61,10 @@ const CharacterFilter: React.FC<CharacterFilterProps> = ({
           </select>
         </div>
         <div>
-          <label htmlFor="gender-filter" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="gender-filter"
+            className="block text-sm font-medium text-gray-700"
+          >
             Gender
           </label>
           <select

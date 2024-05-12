@@ -12,7 +12,7 @@ const LocationsPage: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-4">Locations</h1>
+      <h1 className="text-3xl font-bold mt-4 px-10">Locations</h1>
       <LocationList locations={data.locations.results} />
     </div>
   );

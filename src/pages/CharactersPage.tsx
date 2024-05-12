@@ -69,7 +69,7 @@ const CharactersPage: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-4">Characters</h1>
+      <h1 className="text-3xl font-bold mt-4 px-10">Characters</h1>
       <CharacterFilter
         searchQuery={searchQuery}
         statusFilter={statusFilter}
@@ -93,6 +93,7 @@ const CharactersPage: React.FC = () => {
             totalPages={totalPages}
             onPageChange={handlePageChange}
           />
+          
         </>
       )}
     </div>
