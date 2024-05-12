@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Rick and Morty Fan App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Rick and Morty Fan App is a simple, yet engaging web application that allows users to explore various elements of the Rick and Morty universe. Inspired by the design aesthetics of the IMDB website, the app provides a clean and intuitive user interface. It features three main sections: episodes, characters, and locations, each accessible via a navigation bar.
 
-In the project directory, you can run:
+Each section leverages the Rick and Morty API to display content, with episodes and characters using the RESTful service and the locations utilizing GraphQL.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Episodes Page**: A list of all episodes provided via the Rick and Morty REST API with pagination similar to the IMDB top 250 list. Clicking on an episode reveals a modal with more details and the first three characters featured in that episode.
+- **Characters Page**: An extensive list of characters with the ability to search by name and filter by status and gender. Instead of modals, all character details are directly accessible on the page.
+- **Locations Page**: An exhaustive catalog of locations in the Rick and Morty universe. It implements GraphQL to fetch and display location data.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technology Stack
 
-### `npm test`
+1. **React.js**: For building the user interface components.
+2. **TailwindCSS**: For styling and implementing a responsive design.
+3. **TypeScript**: To provide strong typing and enhance code quality and maintainability.
+4. **Axios**: To make API requests to the Rick and Morty API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API Reference
 
-### `npm run build`
+This application makes use of the [Rick and Morty API](https://rickandmortyapi.com/documentation/) to fetch the data needed for each page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributors
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Leonid Shamarin**
+  
+  - Front-end Developer
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - Email: [Leonideko1@gmail.com](mailto:Leonideko1@gmail.com)
+  
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
